@@ -17,8 +17,11 @@ function addDeleteButton(imgElem){
   deleteButton.innerText = 'X';
   deleteButton.addEventListener('click',() => {
     imgElem.remove();
-  });
-  return deleteButton;
+    deleteButton.remove();
+  }); 
+  const photoGalleryDiv = document.getElementById('photo-gallery');
+  photoGalleryDiv.appendChild(deleteButton);
+  
 }
 
 addPhoto.addEventListener("click", () => {
