@@ -11,10 +11,22 @@ function addPhotoToGallery(imgElem) {
   photoGalleryDiv.appendChild(imgElem);
 }
 
+
+function addDeleteButton(imgElem){
+  const deleteButton = document.createElement('button');
+  deleteButton.innerText = 'X';
+  deleteButton.addEventListener('click',() => {
+    imgElem.remove();
+  });
+  return deleteButton;
+}
+
 addPhoto.addEventListener("click", () => {
   const photoUrl = prompt("Enter the URL of the photo:");
   if (photoUrl) {
     const imgElem = createImgElement(photoUrl);
     addPhotoToGallery(imgElem);
+    const deleteButton = addDeleteButton(imgElem);
+    addPhotoToGallery(deleteButton);
   }
 });
